@@ -2,12 +2,19 @@
   <div class="nav">
     <ul>
       <li>
-        <nuxt-link exact to="/">
-          <app-icon></app-icon>BlogName
-        </nuxt-link>
+        <nuxt-link exact to="/"> <app-icon></app-icon>BlogName </nuxt-link>
       </li>
       <li>
         <nuxt-link to="/about">About</nuxt-link>
+      </li>
+      <li
+        v-for="category in categories"
+        :key="category.id"
+        :class="[category.id === selectedTag ? activeClass : '']"
+      >
+        <nuxt-link :to="`category/${category.slug}`">{{
+          category.name
+        }}</nuxt-link>
       </li>
     </ul>
   </div>
@@ -18,8 +25,33 @@ import AppIcon from "@/components/AppIcon.vue";
 
 export default {
   components: {
-    AppIcon
-  }
+    AppIcon,
+  },
+  data() {
+    return {
+      selectedTag: null,
+      activeClass: "active",
+    };
+  },
+  computed: {
+    categories() {
+      return this.$store.state.categories;
+    },
+  },
+  /*
+  created() {
+    this.$store.dispatch("getPosts");
+  },
+  */
+  methods: {
+    updateTag(tag) {
+      if (!this.selectedTag) {
+        this.selectedTag = tag.id;
+      } else {
+        this.selectedTag = null;
+      }
+    },
+  },
 };
 </script>
 

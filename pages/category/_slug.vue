@@ -10,24 +10,20 @@
 export default {
   computed: {
     posts() {
-      //console.log(`this.$store.state.posts`);
-      //console.dir(this.$store.state.posts);
       return this.$store.state.posts;
     },
     post() {
-      console.log(`this.id ${this.id}`);
-      console.dir(this);
-      return this.posts.find((el) => el.slug === this.slug);
-    },
+      return this.posts.find(el => el.slug === this.slug);
+    }
   },
   data() {
     return {
-      slug: this.$route.params.slug,
+      slug: this.$route.params.slug
     };
   },
   created() {
     this.$store.dispatch("getPosts");
-  },
+  }
 };
 </script>
 

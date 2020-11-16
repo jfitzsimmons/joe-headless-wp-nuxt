@@ -37,12 +37,12 @@ import AppMasthead from "@/components/AppMasthead.vue";
 
 export default {
   components: {
-    AppMasthead
+    AppMasthead,
   },
   data() {
     return {
       selectedTag: null,
-      activeClass: "active"
+      activeClass: "active",
     };
   },
   computed: {
@@ -52,13 +52,21 @@ export default {
     tags() {
       return this.$store.state.tags;
     },
+    categories() {
+      return this.$store.state.categories;
+    },
     sortedPosts() {
       if (!this.selectedTag) return this.posts;
-      return this.posts.filter(el => el.tags.includes(this.selectedTag));
-    }
+      return this.posts.filter((el) => el.tags.includes(this.selectedTag));
+    },
   },
   created() {
-    this.$store.dispatch("getPosts");
+    console.log("created");
+    const payload = {
+      page: 1,
+      category: 1,
+    };
+    this.$store.dispatch("getPosts", payload);
   },
   methods: {
     updateTag(tag) {
@@ -67,8 +75,8 @@ export default {
       } else {
         this.selectedTag = null;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

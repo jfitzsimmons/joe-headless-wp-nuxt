@@ -48,6 +48,7 @@ export default {
   plugins: [
     "~/plugins/posts.server.js",
     "~/plugins/tags.server.js",
+    "~/plugins/categories.server.js",
     "~/plugins/dateformat.js"
   ],
   generate: {
