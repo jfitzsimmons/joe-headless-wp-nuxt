@@ -1,4 +1,4 @@
-const siteURL = "http://news.local/"
+const siteURL = "https://public-api.wordpress.com/rest/v1.1/sites/jfitzsimmons3959175.wordpress.com";
 
 export const state = () => ({
   posts: [],
@@ -19,23 +19,19 @@ export const mutations = {
 }
 
 export const actions = {
-  async getPosts({ state, commit, dispatch }, payload) {
+  async getPosts({ state, commit, dispatch }) {
     
     if (state.posts.length) return
-    console.dir(payload);
-    const page = payload ? payload.page : 1;
-    const category = payload ? `&categories=${payload.category}` : '';
-    console.log(`category: ${category}`);
 
     try {
       let posts = await fetch(
-        `${siteURL}/wp-json/wp/v2/posts?per_page=20&_embed=1&page=${page}${category}`
+        `${siteURL}/posts?number=20&pretty=true`,
       ).then(res => res.json())
 
-      posts = posts
+      posts = posts.posts
         .filter(el => el.status === "publish")
-        .map(({ id, slug, title, excerpt, date, tags, content }) => ({
-          id,
+        .map(({ ID, slug, title, excerpt, date, tags, content }) => ({
+          ID,
           slug,
           title,
           excerpt,
@@ -43,6 +39,8 @@ export const actions = {
           tags,
           content
         }))
+
+       // console.dir(posts);
 
       commit("updatePosts", posts)
     } catch (err) {
@@ -55,14 +53,15 @@ export const actions = {
     let allTags = state.posts.reduce((acc, item) => {
       return acc.concat(item.tags)
     }, [])
-    allTags = allTags.join()
+    allTags = allTags.join();
+    //console.log(`allTags: ${allTags}`);
 
     try {
       let tags = await fetch(
-        `${siteURL}/wp-json/wp/v2/tags?page=1&per_page=40&include=${allTags}`
+        `${siteURL}/tags?page=1&per_page=40&include=${allTags}`
       ).then(res => res.json())
 
-      tags = tags.map(({ id, name }) => ({
+      tags = tags.tags.map(({ id, name }) => ({
         id,
         name
       }))
@@ -75,10 +74,10 @@ export const actions = {
     if (state.categories.length) return
     try {
       let categories = await fetch(
-        `${siteURL}/wp-json/wp/v2/categories?page=1&per_page=20`
+        `${siteURL}/categories?number=20&pretty=true`
       ).then(res => res.json())
 
-      categories = categories.map(({ id, name, slug }) => ({
+      categories = categories.categories.map(({ id, name, slug }) => ({
         id,
         name,
         slug

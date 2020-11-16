@@ -3,12 +3,12 @@
     <app-masthead></app-masthead>
     <div class="posts">
       <main>
-        <div class="post" v-for="post in sortedPosts" :key="post.id">
+        <div class="post" v-for="post in sortedPosts" :key="post.ID">
           <h3>
-            <a :href="`blog/${post.slug}`">{{ post.title.rendered }}</a>
+            <a :href="`blog/${post.slug}`">{{ post.title }}</a>
           </h3>
           <small>{{ post.date | dateformat }}</small>
-          <div v-html="post.excerpt.rendered"></div>
+          <div v-html="post.excerpt"></div>
           <a :href="`blog/${post.slug}`" class="readmore slide">Read more ⟶</a>
         </div>
       </main>
@@ -66,7 +66,7 @@ export default {
       page: 1,
       category: 1,
     };
-    this.$store.dispatch("getPosts", payload);
+    this.$store.dispatch("getPosts");
   },
   methods: {
     updateTag(tag) {
