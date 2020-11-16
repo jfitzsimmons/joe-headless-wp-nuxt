@@ -5,7 +5,6 @@ let dynamicRoutes = () => {
     .then(res => {
       return res.data.map(post => `/blog/${post.slug}`)
     })
-  console.log(routes)
   return routes
 }
 

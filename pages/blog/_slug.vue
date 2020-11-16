@@ -13,8 +13,6 @@ export default {
       return this.$store.state.posts;
     },
     post() {
-      console.log(`this.id ${this.id}`);
-      console.dir(this);
       return this.posts.find((el) => el.slug === this.slug);
     },
   },

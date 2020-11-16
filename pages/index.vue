@@ -61,7 +61,6 @@ export default {
     },
   },
   created() {
-    console.log("created");
     const payload = {
       page: 1,
       category: 1,

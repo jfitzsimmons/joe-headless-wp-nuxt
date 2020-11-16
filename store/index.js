@@ -40,8 +40,6 @@ export const actions = {
           content
         }))
 
-       // console.dir(posts);
-
       commit("updatePosts", posts)
     } catch (err) {
       console.log(err)
@@ -54,7 +52,6 @@ export const actions = {
       return acc.concat(item.tags)
     }, [])
     allTags = allTags.join();
-    //console.log(`allTags: ${allTags}`);
 
     try {
       let tags = await fetch(
