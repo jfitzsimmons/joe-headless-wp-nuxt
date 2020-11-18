@@ -1,3 +1,3 @@
-export default async ({ store }) => {
-  await store.dispatch('getPosts')
+export default async ({ store }, payload) => {
+  await store.dispatch('getPosts', payload)
 }

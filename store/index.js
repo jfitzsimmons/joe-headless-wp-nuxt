@@ -19,13 +19,15 @@ export const mutations = {
 }
 
 export const actions = {
-  async getPosts({ state, commit, dispatch }) {
+  async getPosts({ state, commit, dispatch }, payload) {
     
     if (state.posts.length) return
+    const page = payload ? payload.page : 1;
+    const category = payload ? `&category=${payload.category}` : '';
 
     try {
       let posts = await fetch(
-        `${siteURL}/posts?number=20&pretty=true`,
+        `${siteURL}/posts?number=20&pretty=true&page=${page}${category}`
       ).then(res => res.json())
 
       posts = posts.posts

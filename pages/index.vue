@@ -61,10 +61,6 @@ export default {
     },
   },
   created() {
-    const payload = {
-      page: 1,
-      category: 1,
-    };
     this.$store.dispatch("getPosts");
   },
   methods: {
