@@ -2,17 +2,17 @@
   <div class="nav">
     <ul>
       <li>
-        <nuxt-link exact to="/"> <app-icon></app-icon>BlogName </nuxt-link>
+        <NuxtLink exact to="/"> <app-icon></app-icon>BlogName </NuxtLink>
       </li>
       <li>
-        <nuxt-link to="/about">About</nuxt-link>
+        <NuxtLink to="/about">About</NuxtLink>
       </li>
       <li
         v-for="category in categories"
         :key="category.id"
         :class="[category.id === selectedTag ? activeClass : '']"
       >
-        <nuxt-link :to="`category/${category.slug}`">{{
+        <nuxt-link :to="`/category/${category.slug}`">{{
           category.name
         }}</nuxt-link>
       </li>
@@ -36,20 +36,6 @@ export default {
   computed: {
     categories() {
       return this.$store.state.categories;
-    },
-  },
-  /*
-  created() {
-    this.$store.dispatch("getPosts");
-  },
-  */
-  methods: {
-    updateTag(tag) {
-      if (!this.selectedTag) {
-        this.selectedTag = tag.id;
-      } else {
-        this.selectedTag = null;
-      }
     },
   },
 };

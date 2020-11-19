@@ -9,7 +9,7 @@
           </h3>
           <small>{{ post.date | dateformat }}</small>
           <div v-html="post.excerpt"></div>
-          <a :href="`blog/${post.slug}`" class="readmore slide">Read more ⟶</a>
+          <a :href="`/blog/${post.slug}`" class="readmore slide">Read more ⟶</a>
         </div>
       </main>
     </div>
@@ -25,8 +25,7 @@ export default {
   },
   data() {
     return {
-      selectedTag: null,
-      activeClass: "active",
+      slug: this.$route.params.slug,
     };
   },
   computed: {
@@ -47,7 +46,7 @@ export default {
   created() {
     const payload = {
       page: 1,
-      category: "uncategorized",
+      category: this.slug,
     };
     this.$store.dispatch("getPosts", payload);
   },

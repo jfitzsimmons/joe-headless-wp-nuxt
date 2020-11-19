@@ -5,11 +5,11 @@
       <main>
         <div class="post" v-for="post in sortedPosts" :key="post.ID">
           <h3>
-            <a :href="`blog/${post.slug}`">{{ post.title }}</a>
+            <a :href="`/blog/${post.slug}`">{{ post.title }}</a>
           </h3>
           <small>{{ post.date | dateformat }}</small>
           <div v-html="post.excerpt"></div>
-          <a :href="`blog/${post.slug}`" class="readmore slide">Read more ⟶</a>
+          <a :href="`/blog/${post.slug}`" class="readmore slide">Read more ⟶</a>
         </div>
       </main>
       <aside>
@@ -61,7 +61,11 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("getPosts");
+    const payload = {
+      page: 1,
+      category: "",
+    };
+    this.$store.dispatch("getPosts", payload);
   },
   methods: {
     updateTag(tag) {

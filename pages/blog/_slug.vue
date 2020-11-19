@@ -1,8 +1,11 @@
 <template>
   <main class="post individual">
-    <h1>{{ post.title }}</h1>
-    <small class="date">{{ post.date | dateformat }}</small>
-    <section v-html="post.content"></section>
+    <div v-if="!post">Loading...</div>
+    <div v-else>
+      <h1>{{ post.title }}</h1>
+      <small class="date">{{ post.date | dateformat }}</small>
+      <section v-html="post.content"></section>
+    </div>
   </main>
 </template>
 

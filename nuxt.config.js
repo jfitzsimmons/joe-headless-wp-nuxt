@@ -1,10 +1,11 @@
 import axios from "axios"
 let dynamicRoutes = () => {
   const routes = axios
-    .get("https://public-api.wordpress.com/rest/v1.1/sites/jfitzsimmons3959175.wordpress.com/posts?number=20&pretty=true&page=1&per_page=20")
+    .get("https://public-api.wordpress.com/rest/v1.1/sites/jfitzsimmons3959175.wordpress.com/posts/?number=20&pretty=true&page=1&per_page=20")
     .then(res => {
-      return res.data.posts.map(post => `/blog/${post.slug}`)
+      return res.data.map(post => `/blog/${post.slug}`)
     })
+  console.log(routes)
   return routes
 }
 
