@@ -5,7 +5,7 @@
       <main>
         <div class="post" v-for="post in sortedPosts" :key="post.ID">
           <h3>
-            <a :href="`blog/${post.slug}`">{{ post.title }}</a>
+            <a :href="`/blog/${post.slug}`">{{ post.title }}</a>
           </h3>
           <small>{{ post.date | dateformat }}</small>
           <div v-html="post.excerpt"></div>

@@ -21,7 +21,7 @@ export const mutations = {
 export const actions = {
   async getPosts({ state, commit, dispatch }, payload) {
     
-    if (state.posts.length) return
+    // if (state.posts.length) return
     const page = payload ? payload.page : 1;
     const category = payload ? `&category=${payload.category}` : '';
 
@@ -32,14 +32,16 @@ export const actions = {
 
       posts = posts.posts
         .filter(el => el.status === "publish")
-        .map(({ ID, slug, title, excerpt, date, tags, content }) => ({
+        .map(({ ID, slug, title, excerpt, date, tags, content, featured_image, attachments }) => ({
           ID,
           slug,
           title,
           excerpt,
           date,
           tags,
-          content
+          content,
+          featured_image,
+          attachments
         }))
 
       commit("updatePosts", posts)
@@ -76,11 +78,13 @@ export const actions = {
         `${siteURL}/categories?number=20&pretty=true`
       ).then(res => res.json())
 
-      categories = categories.categories.map(({ id, name, slug }) => ({
-        id,
-        name,
-        slug
-      }))
+      categories = categories.categories
+        .filter(el => el.post_count > 0)
+        .map(({ id, name, slug }) => ({
+          id,
+          name,
+          slug
+        }))
 
       commit("updateCategories", categories)
     } catch (err) {

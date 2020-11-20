@@ -1,9 +1,12 @@
 <template>
   <div>
-    <app-masthead></app-masthead>
+    <!--<app-masthead></app-masthead>-->
     <div class="posts">
       <main>
         <div class="post" v-for="post in sortedPosts" :key="post.ID">
+          <div class="post__featured-image">
+            <img :src="post.featured_image" />
+          </div>
           <h3>
             <a :href="`/blog/${post.slug}`">{{ post.title }}</a>
           </h3>
@@ -12,6 +15,7 @@
           <a :href="`/blog/${post.slug}`" class="readmore slide">Read more ⟶</a>
         </div>
       </main>
+      <!--
       <aside>
         <h2 class="tags-title">Tags</h2>
         <div class="tags-list">
@@ -27,7 +31,7 @@
             </li>
           </ul>
         </div>
-      </aside>
+      </aside>-->
     </div>
   </div>
 </template>
@@ -66,6 +70,7 @@ export default {
       category: "",
     };
     this.$store.dispatch("getPosts", payload);
+    console.dir(this.$store.state.posts);
   },
   methods: {
     updateTag(tag) {
