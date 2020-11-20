@@ -1,16 +1,19 @@
 <template>
   <div class="nav">
     <ul>
-      <li>
+      <li class="plaid nav__home">
         <NuxtLink exact to="/"> <app-icon></app-icon>BlogName </NuxtLink>
       </li>
-      <li>
+      <li class="plaid">
+        <div class="blur"></div>
         <NuxtLink to="/about">About</NuxtLink>
       </li>
       <li
         v-for="category in categories"
         :key="category.id"
-        :class="[category.id === selectedTag ? activeClass : '']"
+        :class="`plaid blur ${[
+          category.id === selectedTag ? activeClass : '',
+        ]}`"
       >
         <nuxt-link :to="`/category/${category.slug}`">{{
           category.name
@@ -43,17 +46,21 @@ export default {
 
 <style lang="scss" scoped>
 .nav {
-  background: #000;
-  color: #fff;
-  padding: 1em 100px;
-
   a {
-    color: #fff;
     opacity: 0.8;
     &:hover {
       opacity: 1;
     }
   }
+}
+
+.nav__home {
+  position: absolute;
+  left: -1em;
+  padding: 2em;
+  top: -1em;
+  background-color: #fff;
+  font-size: 2em;
 }
 
 div {
@@ -64,11 +71,11 @@ div {
 }
 
 ul {
-  padding-left: 0;
-
-  li {
-    display: inline-block;
-    margin-right: 30px;
-  }
+  padding: 1em;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  border-bottom: 1em solid #181848;
 }
 </style>

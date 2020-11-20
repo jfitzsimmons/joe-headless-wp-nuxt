@@ -5,7 +5,13 @@
       <main>
         <div class="post" v-for="post in sortedPosts" :key="post.ID">
           <div class="post__featured-image">
-            <img :src="post.featured_image" />
+            <img
+              :src="post.featured_image"
+              :alt="post.attachments[Object.keys(post.attachments)[0]].alt"
+            />
+          </div>
+          <div class="plaid post__category">
+            <span>{{ Object.keys(post.categories)[0] }}</span>
           </div>
           <h3>
             <a :href="`/blog/${post.slug}`">{{ post.title }}</a>
