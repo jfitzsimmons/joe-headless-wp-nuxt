@@ -17,8 +17,8 @@ export default {
 
 <style>
 html {
-  font-family: "Open Sans", sans-serif;
-  font-size: 18px;
+  font-family: "Avenir", "Open Sans", sans-serif;
+  font-size: calc(10px + (16 - 10) * ((100vw - 430px) / (1280 - 430)));
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -28,7 +28,9 @@ html {
 }
 
 body {
-  background-color: #fff;
+  margin: 0;
+  font-size: calc(10px + (16 - 10) * ((100vw - 430px) / (1280 - 430)));
+  background: #ecf8fe;
 }
 
 h1,
@@ -91,86 +93,17 @@ p {
   margin: 15px 0 20px;
 }
 
-.dark-plaid {
-  background-color: #181848;
-  background-image: repeating-linear-gradient(
-      to bottom,
-      transparent,
-      transparent 56%,
-      hsla(60, 80%, 15%, 0.5) 33%,
-      hsla(60, 80%, 15%, 0.5) 70%
-    ),
-    repeating-linear-gradient(
-      to right,
-      transparent,
-      transparent 46%,
-      hsla(60, 80%, 15%, 0.5) 44%,
-      hsla(60, 80%, 15%, 0.5) 85%
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      transparent,
-      transparent 15%,
-      hsla(0, 85%, 30%, 0.5) 5%,
-      hsla(0, 85%, 30%, 0.5) 22%
-    ),
-    repeating-linear-gradient(
-      to right,
-      transparent,
-      transparent 8%,
-      hsla(0, 85%, 30%, 0.5) 7%,
-      hsla(0, 85%, 30%, 0.5) 19%
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      hsla(200, 88%, 30%, 0.5) 10%,
-      hsla(200, 88%, 30%, 0.5) 40%,
-      transparent 25%,
-      transparent 60%
-    ),
-    repeating-linear-gradient(
-      to right,
-      hsla(200, 88%, 30%, 0.5) 10%,
-      hsla(200, 88%, 30%, 0.5) 40%,
-      transparent 25%,
-      transparent 60%
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      transparent,
-      transparent 25%,
-      hsla(0, 0%, 15%, 0.5) 15%,
-      hsla(0, 0%, 15%, 0.5) 40%
-    ),
-    repeating-linear-gradient(
-      to right,
-      transparent,
-      transparent 20%,
-      hsla(0, 0%, 15%, 0.5) 20%,
-      hsla(0, 0%, 15%, 0.5) 40%
-    );
-}
-
-.blur {
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
-  -moz-filter: blur(2px);
-  -o-filter: blur(2px);
-  -ms-filter: blur(2px);
-}
-
 .plaid {
   list-style: none;
   padding: 1.5em 0.5em;
-  border: 0.4em dashed #fff;
+  border: 0.4em dashed #ecf8fe;
 }
 
 .plaid a {
-  font-size: 1.5em;
   padding: 0.5em;
   color: #181848;
   font-weight: 500;
-  text-shadow: #ffc 0px 0 10px;
+  text-shadow: #ffc 0px 0 8px;
 }
 
 .plaid:nth-of-type(4n + 1) {
@@ -178,41 +111,41 @@ p {
       to bottom,
       transparent,
       transparent 56%,
-      hsla(60, 80%, 85%, 0.4) 33%,
-      hsla(60, 80%, 85%, 0.4) 70%
+      hsla(60, 80%, 85%, 0.5) 33%,
+      hsla(60, 80%, 85%, 0.5) 70%
     ),
     repeating-linear-gradient(
       to right,
       transparent,
       transparent 46%,
-      hsla(60, 80%, 85%, 0.4) 44%,
-      hsla(60, 80%, 85%, 0.4) 85%
+      hsla(60, 80%, 85%, 0.5) 44%,
+      hsla(60, 80%, 85%, 0.5) 85%
     ),
     repeating-linear-gradient(
       to bottom,
       transparent,
       transparent 15%,
-      hsla(0, 85%, 70%, 0.4) 5%,
-      hsla(0, 85%, 70%, 0.4) 22%
+      hsla(0, 85%, 70%, 0.5) 5%,
+      hsla(0, 85%, 70%, 0.5) 22%
     ),
     repeating-linear-gradient(
       to left,
       transparent,
       transparent 8%,
-      hsla(0, 85%, 70%, 0.4) 7%,
-      hsla(0, 85%, 70%, 0.4) 19%
+      hsla(0, 85%, 70%, 0.5) 7%,
+      hsla(0, 85%, 70%, 0.5) 19%
     ),
     repeating-linear-gradient(
       to bottom,
-      hsla(200, 88%, 70%, 0.4) 10%,
-      hsla(200, 88%, 70%, 0.4) 40%,
+      hsla(200, 88%, 70%, 0.5) 10%,
+      hsla(200, 88%, 70%, 0.5) 40%,
       transparent 25%,
       transparent 60%
     ),
     repeating-linear-gradient(
       to left,
-      hsla(200, 88%, 70%, 0.4) 10%,
-      hsla(200, 88%, 70%, 0.4) 40%,
+      hsla(200, 88%, 70%, 0.5) 10%,
+      hsla(200, 88%, 70%, 0.5) 40%,
       transparent 25%,
       transparent 60%
     ),
@@ -220,15 +153,15 @@ p {
       to top,
       transparent,
       transparent 25%,
-      hsla(0, 0%, 85%, 0.4) 15%,
-      hsla(0, 0%, 85%, 0.4) 40%
+      hsla(0, 0%, 85%, 0.5) 15%,
+      hsla(0, 0%, 85%, 0.5) 40%
     ),
     repeating-linear-gradient(
       to left,
       transparent,
       transparent 20%,
-      hsla(0, 0%, 85%, 0.4) 20%,
-      hsla(0, 0%, 85%, 0.4) 40%
+      hsla(0, 0%, 85%, 0.5) 20%,
+      hsla(0, 0%, 85%, 0.5) 40%
     );
 }
 .plaid:nth-of-type(4n + 2) {
@@ -236,41 +169,41 @@ p {
       to bottom,
       transparent,
       transparent 56%,
-      hsla(0, 85%, 70%, 0.4) 33%,
-      hsla(0, 85%, 70%, 0.4) 70%
+      hsla(0, 85%, 70%, 0.5) 33%,
+      hsla(0, 85%, 70%, 0.5) 70%
     ),
     repeating-linear-gradient(
       to left,
       transparent,
       transparent 46%,
-      hsla(0, 85%, 70%, 0.4) 44%,
-      hsla(0, 85%, 70%, 0.4) 85%
+      hsla(0, 85%, 70%, 0.5) 44%,
+      hsla(0, 85%, 70%, 0.5) 85%
     ),
     repeating-linear-gradient(
       to bottom,
       transparent,
       transparent 15%,
-      hsla(60, 80%, 85%, 0.4) 5%,
-      hsla(60, 80%, 85%, 0.4) 22%
+      hsla(60, 80%, 85%, 0.5) 5%,
+      hsla(60, 80%, 85%, 0.5) 22%
     ),
     repeating-linear-gradient(
       to right,
       transparent,
       transparent 8%,
-      hsla(60, 80%, 85%, 0.4) 7%,
-      hsla(60, 80%, 85%, 0.4) 19%
+      hsla(60, 80%, 85%, 0.5) 7%,
+      hsla(60, 80%, 85%, 0.5) 19%
     ),
     repeating-linear-gradient(
       to top,
-      hsla(0, 0%, 85%, 0.4) 10%,
-      hsla(0, 0%, 85%, 0.4) 40%,
+      hsla(0, 0%, 85%, 0.5) 10%,
+      hsla(0, 0%, 85%, 0.5) 40%,
       transparent 25%,
       transparent 60%
     ),
     repeating-linear-gradient(
       to left,
-      hsla(0, 0%, 85%, 0.4) 10%,
-      hsla(0, 0%, 85%, 0.4) 40%,
+      hsla(0, 0%, 85%, 0.5) 10%,
+      hsla(0, 0%, 85%, 0.5) 40%,
       transparent 25%,
       transparent 60%
     ),
@@ -278,15 +211,15 @@ p {
       to bottom,
       transparent,
       transparent 25%,
-      hsla(200, 88%, 70%, 0.4) 15%,
-      hsla(200, 88%, 70%, 0.4) 40%
+      hsla(200, 88%, 70%, 0.5) 15%,
+      hsla(200, 88%, 70%, 0.5) 40%
     ),
     repeating-linear-gradient(
       to right,
       transparent,
       transparent 20%,
-      hsla(200, 88%, 70%, 0.4) 20%,
-      hsla(200, 88%, 70%, 0.4) 40%
+      hsla(200, 88%, 70%, 0.5) 20%,
+      hsla(200, 88%, 70%, 0.5) 40%
     );
 }
 .plaid:nth-of-type(4n + 3) {
@@ -294,41 +227,41 @@ p {
       to top,
       transparent,
       transparent 56%,
-      hsla(60, 80%, 85%, 0.4) 33%,
-      hsla(60, 80%, 85%, 0.4) 70%
+      hsla(60, 80%, 85%, 0.5) 33%,
+      hsla(60, 80%, 85%, 0.5) 70%
     ),
     repeating-linear-gradient(
       to right,
       transparent,
       transparent 46%,
-      hsla(60, 80%, 85%, 0.4) 44%,
-      hsla(60, 80%, 85%, 0.4) 85%
+      hsla(60, 80%, 85%, 0.5) 44%,
+      hsla(60, 80%, 85%, 0.5) 85%
     ),
     repeating-linear-gradient(
       to top,
       transparent,
       transparent 15%,
-      hsla(200, 88%, 70%, 0.4) 5%,
-      hsla(200, 88%, 70%, 0.4) 22%
+      hsla(200, 88%, 70%, 0.5) 5%,
+      hsla(200, 88%, 70%, 0.5) 22%
     ),
     repeating-linear-gradient(
       to right,
       transparent,
       transparent 8%,
-      hsla(200, 88%, 70%, 0.4) 7%,
-      hsla(200, 88%, 70%, 0.4) 19%
+      hsla(200, 88%, 70%, 0.5) 7%,
+      hsla(200, 88%, 70%, 0.5) 19%
     ),
     repeating-linear-gradient(
       to top,
-      hsla(0, 85%, 70%, 0.4) 10%,
-      hsla(0, 85%, 70%, 0.4) 40%,
+      hsla(0, 85%, 70%, 0.5) 10%,
+      hsla(0, 85%, 70%, 0.5) 40%,
       transparent 25%,
       transparent 60%
     ),
     repeating-linear-gradient(
       to right,
-      hsla(0, 85%, 70%, 0.4) 10%,
-      hsla(0, 85%, 70%, 0.4) 40%,
+      hsla(0, 85%, 70%, 0.5) 10%,
+      hsla(0, 85%, 70%, 0.5) 40%,
       transparent 25%,
       transparent 60%
     ),
@@ -336,15 +269,15 @@ p {
       to bottom,
       transparent,
       transparent 25%,
-      hsla(0, 0%, 85%, 0.4) 15%,
-      hsla(0, 0%, 85%, 0.4) 40%
+      hsla(0, 0%, 85%, 0.5) 15%,
+      hsla(0, 0%, 85%, 0.5) 40%
     ),
     repeating-linear-gradient(
       to left,
       transparent,
       transparent 20%,
-      hsla(0, 0%, 85%, 0.4) 20%,
-      hsla(0, 0%, 85%, 0.4) 40%
+      hsla(0, 0%, 85%, 0.5) 20%,
+      hsla(0, 0%, 85%, 0.5) 40%
     );
 }
 .plaid:nth-of-type(4n + 4) {
@@ -352,41 +285,41 @@ p {
       to top,
       transparent,
       transparent 56%,
-      hsla(0, 85%, 70%, 0.4) 33%,
-      hsla(0, 85%, 70%, 0.4) 70%
+      hsla(0, 85%, 70%, 0.5) 33%,
+      hsla(0, 85%, 70%, 0.5) 70%
     ),
     repeating-linear-gradient(
       to left,
       transparent,
       transparent 46%,
-      hsla(0, 85%, 70%, 0.4) 44%,
-      hsla(0, 85%, 70%, 0.4) 85%
+      hsla(0, 85%, 70%, 0.5) 44%,
+      hsla(0, 85%, 70%, 0.5) 85%
     ),
     repeating-linear-gradient(
       to top,
       transparent,
       transparent 15%,
-      hsla(60, 80%, 85%, 0.4) 5%,
-      hsla(60, 80%, 85%, 0.4) 22%
+      hsla(60, 80%, 85%, 0.5) 5%,
+      hsla(60, 80%, 85%, 0.5) 22%
     ),
     repeating-linear-gradient(
       to left,
       transparent,
       transparent 8%,
-      hsla(60, 80%, 85%, 0.4) 7%,
-      hsla(60, 80%, 85%, 0.4) 19%
+      hsla(60, 80%, 85%, 0.5) 7%,
+      hsla(60, 80%, 85%, 0.5) 19%
     ),
     repeating-linear-gradient(
       to bottom,
-      hsla(200, 88%, 70%, 0.4) 10%,
-      hsla(200, 88%, 70%, 0.4) 40%,
+      hsla(200, 88%, 70%, 0.5) 10%,
+      hsla(200, 88%, 70%, 0.5) 40%,
       transparent 25%,
       transparent 60%
     ),
     repeating-linear-gradient(
       to right,
-      hsla(200, 88%, 70%, 0.4) 10%,
-      hsla(200, 88%, 70%, 0.4) 40%,
+      hsla(200, 88%, 70%, 0.5) 10%,
+      hsla(200, 88%, 70%, 0.5) 40%,
       transparent 25%,
       transparent 60%
     ),
@@ -394,15 +327,15 @@ p {
       to top,
       transparent,
       transparent 25%,
-      hsla(0, 0%, 85%, 0.4) 15%,
-      hsla(0, 0%, 85%, 0.4) 40%
+      hsla(0, 0%, 85%, 0.5) 15%,
+      hsla(0, 0%, 85%, 0.5) 40%
     ),
     repeating-linear-gradient(
       to right,
       transparent,
       transparent 20%,
-      hsla(0, 0%, 85%, 0.4) 20%,
-      hsla(0, 0%, 85%, 0.4) 40%
+      hsla(0, 0%, 85%, 0.5) 20%,
+      hsla(0, 0%, 85%, 0.5) 40%
     );
 }
 </style>

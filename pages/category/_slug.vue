@@ -64,10 +64,6 @@ export default {
 
 <style lang="scss">
 .posts {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr;
-  grid-column-gap: 6vw;
   margin: 5em auto;
   max-width: 80vw;
 }
@@ -125,7 +121,7 @@ a.readmore {
 }
 
 .post {
-  border-bottom: 1px solid rgb(223, 222, 222);
+  border-bottom: 0.4em dashed #ddc1ca;
   margin-bottom: 2em;
   padding-bottom: 2em;
   color: #444;

@@ -1,15 +1,15 @@
 <template>
-  <div>
+  <div class="content">
     <!--<app-masthead></app-masthead>-->
     <div class="posts">
-      <main>
-        <div class="post" v-for="post in sortedPosts" :key="post.ID">
-          <div class="post__featured-image">
-            <img
-              :src="post.featured_image"
-              :alt="post.attachments[Object.keys(post.attachments)[0]].alt"
-            />
-          </div>
+      <div class="post" v-for="post in sortedPosts" :key="post.ID">
+        <div class="post__featured-image">
+          <img
+            :src="post.featured_image"
+            :alt="post.attachments[Object.keys(post.attachments)[0]].alt"
+          />
+        </div>
+        <div class="post__content">
           <div class="plaid post__category">
             <span>{{ Object.keys(post.categories)[0] }}</span>
           </div>
@@ -20,7 +20,8 @@
           <div v-html="post.excerpt"></div>
           <a :href="`/blog/${post.slug}`" class="readmore slide">Read more ⟶</a>
         </div>
-      </main>
+      </div>
+
       <!--
       <aside>
         <h2 class="tags-title">Tags</h2>
@@ -93,19 +94,33 @@ export default {
 <style lang="scss">
 .posts {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr;
-  grid-column-gap: 6vw;
-  margin: 5em auto;
-  max-width: 80vw;
+  grid-template-areas:
+    "a a a a"
+    "b b c c"
+    "d d d d";
+  grid-gap: 1rem;
 }
 
-main {
-  grid-area: 1 / 1 / 2 / 2;
-}
+.post:nth-of-type(4n + 1) {
+  grid-area: a;
+  display: flex;
+  align-items: center;
 
-aside {
-  grid-area: 1 / 2 / 2 / 3;
+  .post__featured-image {
+    width: 64vw;
+  }
+
+  .post__content {
+    margin-left: -3vw;
+    width: 25vw;
+    background: #fff;
+  }
+
+  .post__category {
+    float: right;
+    margin-right: -2vw;
+    margin-top: -2vw;
+  }
 }
 
 h2 {
