@@ -64,8 +64,8 @@ export default {
 
 <style lang="scss">
 .posts {
-  margin: 5em auto;
-  max-width: 80vw;
+  margin: 10em auto;
+  max-width: 90vw;
 }
 
 main {
@@ -125,11 +125,6 @@ a.readmore {
   margin-bottom: 2em;
   padding-bottom: 2em;
   color: #444;
-
-  h3 {
-    margin-bottom: 0.5em;
-    font-size: 26px;
-  }
 }
 
 .tags-list ul {
