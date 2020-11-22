@@ -81,10 +81,11 @@ export const actions = {
 
       categories = categories.categories
         .filter(el => el.post_count > 0)
-        .map(({ id, name, slug }) => ({
+        .map(({ id, name, slug, description }) => ({
           id,
           name,
-          slug
+          slug,
+          description
         }))
 
       commit("updateCategories", categories)

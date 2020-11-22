@@ -1,6 +1,13 @@
 <template>
   <div>
-    <app-masthead></app-masthead>
+    <div v-if="!category">Loading...</div>
+
+    <app-masthead
+      v-else
+      :pic="category.description"
+      :name="category.name"
+    ></app-masthead>
+
     <div class="posts">
       <main>
         <div class="post" v-for="post in sortedPosts" :key="post.ID">
@@ -32,8 +39,8 @@ export default {
     posts() {
       return this.$store.state.posts;
     },
-    tags() {
-      return this.$store.state.tags;
+    category() {
+      return this.categories.find((el) => el.slug === this.slug);
     },
     categories() {
       return this.$store.state.categories;
