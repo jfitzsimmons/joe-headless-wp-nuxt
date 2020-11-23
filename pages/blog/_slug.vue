@@ -32,7 +32,7 @@ export default {
 
 <style lang="scss" scoped>
 main.post {
-  margin: 60px auto 50px;
+  margin: 10em auto;
   max-width: 800px;
   padding: 0 30px 70px;
 }

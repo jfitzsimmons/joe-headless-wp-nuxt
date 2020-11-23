@@ -1,11 +1,11 @@
 <template>
   <div class="nav">
     <div class="plaid nav__home">
-      <NuxtLink exact to="/"> <app-icon></app-icon>Blog</NuxtLink>
+      <NuxtLink to="/"> <app-icon></app-icon>Blog</NuxtLink>
     </div>
     <ul>
       <li class="plaid nav__link">
-        <NuxtLink to="/about">About</NuxtLink>
+        <NuxtLink class="plaid__link" to="/about">About</NuxtLink>
       </li>
       <li
         v-for="category in categories"
@@ -14,7 +14,7 @@
           category.id === selectedTag ? activeClass : '',
         ]}`"
       >
-        <nuxt-link :to="`/category/${category.slug}`">{{
+        <nuxt-link class="plaid__link" :to="`/category/${category.slug}`">{{
           category.name
         }}</nuxt-link>
       </li>
@@ -48,21 +48,22 @@ export default {
   position: fixed;
   background: #ecf8fe;
   top: 0;
-  .nav__link a {
-    background: #ecf8fe;
-    border: 5px dashed #ddc1ca;
-  }
-  a {
-    color: #181848;
-  }
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .nav__home {
-  position: absolute;
-  height: 1vw;
-  top: 0;
+  /*
+position: absolute;
+top: 0;
+*/
+  max-height: 10vw;
   font-size: 2rem;
   max-width: 24vw;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: -2vw;
 }
 
 div {
@@ -74,7 +75,7 @@ div {
 ul {
   padding: 0.5rem;
   display: inline-flex;
-  justify-content: right;
+  justify-content: flex-end;
   align-self: start;
   flex: 1;
   background: #ecf8fe;

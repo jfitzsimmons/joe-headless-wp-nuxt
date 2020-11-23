@@ -99,13 +99,28 @@ p {
   border: 0.4em dashed #ecf8fe;
 }
 
+.plaid:hover,
+.nuxt-link-exact-active {
+  filter: saturate(250%);
+}
+
 .plaid a {
   padding: 0.5em;
-  color: #181848;
   font-weight: 500;
   text-shadow: #ffc 0px 0 8px;
 }
-
+.plaid__link {
+  background: hsla(200, 90%, 96%, 0.85);
+  border: 5px dashed #ddc1ca;
+  color: #181848;
+}
+/*
+.plaid__link:hover {
+  background: hsla(240, 50%, 19%, 0.5);
+  border: 5px dashed #181848;
+  color: #fff;
+}
+*/
 .plaid:nth-of-type(4n + 1) {
   background-image: repeating-linear-gradient(
       to bottom,

@@ -1,8 +1,7 @@
 <template>
   <div class="content">
-    <!--<app-masthead></app-masthead>-->
     <div class="posts">
-      <div class="post" v-for="post in sortedPosts" :key="post.ID">
+      <div class="post" v-for="post in posts" :key="post.ID">
         <div class="post__featured-image">
           <img
             :src="post.featured_image"
@@ -11,7 +10,12 @@
         </div>
         <div class="post__content">
           <div class="plaid post__category">
-            <span>{{ Object.keys(post.categories)[0] }}</span>
+            <nuxt-link
+              class="plaid__link"
+              :to="`/category/${Object.keys(post.categories)[0].toLowerCase()}`"
+              >{{ Object.keys(post.categories)[0] }}</nuxt-link
+            >
+            <span></span>
           </div>
           <h3>
             <a :href="`/blog/${post.slug}`">{{ post.title }}</a>
@@ -60,15 +64,8 @@ export default {
     posts() {
       return this.$store.state.posts;
     },
-    tags() {
-      return this.$store.state.tags;
-    },
     categories() {
       return this.$store.state.categories;
-    },
-    sortedPosts() {
-      if (!this.selectedTag) return this.posts;
-      return this.posts.filter((el) => el.tags.includes(this.selectedTag));
     },
   },
   created() {
@@ -78,15 +75,6 @@ export default {
     };
     this.$store.dispatch("getPosts", payload);
     console.dir(this.$store.state.posts);
-  },
-  methods: {
-    updateTag(tag) {
-      if (!this.selectedTag) {
-        this.selectedTag = tag.id;
-      } else {
-        this.selectedTag = null;
-      }
-    },
   },
 };
 </script>
@@ -186,7 +174,7 @@ a,
 a:active,
 a:visited {
   text-decoration: none;
-  color: black;
+  color: #181848;
 }
 
 a.readmore {

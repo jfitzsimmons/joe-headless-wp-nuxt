@@ -10,7 +10,7 @@
 
     <div class="posts">
       <main>
-        <div class="post" v-for="post in sortedPosts" :key="post.ID">
+        <div class="post" v-for="post in posts" :key="post.ID">
           <h3>
             <a :href="`/blog/${post.slug}`">{{ post.title }}</a>
           </h3>
@@ -45,10 +45,6 @@ export default {
     categories() {
       return this.$store.state.categories;
     },
-    sortedPosts() {
-      if (!this.selectedTag) return this.posts;
-      return this.posts.filter((el) => el.tags.includes(this.selectedTag));
-    },
   },
   created() {
     const payload = {
@@ -56,15 +52,6 @@ export default {
       category: this.slug,
     };
     this.$store.dispatch("getPosts", payload);
-  },
-  methods: {
-    updateTag(tag) {
-      if (!this.selectedTag) {
-        this.selectedTag = tag.id;
-      } else {
-        this.selectedTag = null;
-      }
-    },
   },
 };
 </script>
@@ -91,7 +78,6 @@ a,
 a:active,
 a:visited {
   text-decoration: none;
-  color: black;
 }
 
 a.readmore {
@@ -108,53 +94,11 @@ a.readmore {
   background: #fff;
 }
 
-.tags-title {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  text-transform: capitalize;
-  letter-spacing: 0;
-  font-size: 1.2rem;
-  padding: 15px;
-  margin: 0 35px;
-  position: relative;
-  top: -25px;
-}
-
-.tags-list {
-  background: #f5f5f5;
-  padding: 70px 25px 25px;
-  margin-top: -65px;
-}
-
 .post {
   border-bottom: 0.4em dashed #ddc1ca;
   margin-bottom: 2em;
   padding-bottom: 2em;
   color: #444;
-}
-
-.tags-list ul {
-  padding-left: 0;
-}
-
-.tags-list li {
-  font-family: "Open Sans", serif;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 6px 15px;
-  margin: 0 0 10px 10px;
-  display: inline-block;
-  font-size: 0.7rem !important;
-  border: 1px solid #000;
-  transition: all 0.3s;
-  outline: none;
-  font-weight: normal;
-  cursor: pointer;
-  background: #fff;
-  a {
-    color: #000;
-  }
 }
 
 .active {
